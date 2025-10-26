@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>User Manager — HTML</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand">User Manager</div>
+      <nav class="menu">
+        <a class="link" href="#/">Início</a>
+        <a class="link" href="#/register">Cadastrar</a>
+        <a class="link" id="nav-login" href="#/login">Entrar</a>
+        <a class="link hidden" id="nav-dash" href="#/dashboard">Dashboard</a>
+        <a class="link hidden" id="nav-admin" href="#/admin/users">Admin</a>
+        <button class="btn ghost hidden" id="btn-logout">Sair</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="hero">
+      <h1>Gerenciador de Usuários</h1>
+      <p>Cadastro, login, área autenticada e painel administrativo em arquivos HTML, CSS e JS.</p>
+      <div class="actions">
+        <a class="btn primary" href="#/register">Criar conta</a>
+        <a class="btn" href="#/login">Entrar</a>
+      </div>
+    </section>
+
+    <section id="view" class="view"></section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>
