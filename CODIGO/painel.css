@@ -1,0 +1,89 @@
+:root{
+  --bg:#0b1020;
+  --bg2:#101735;
+  --fg:#e7ecff;
+  --muted:#aab2d5;
+  --pri:#6ea8fe;
+  --pri2:#8ab4ff;
+  --ok:#86efac;
+  --warn:#fde047;
+  --danger:#f87171;
+  --glass: rgba(255,255,255,.08);
+  --border: rgba(255,255,255,.12);
+  --ring: 0 0 0 6px rgba(110,168,254,.15);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Ubuntu,Arial;color:var(--fg);}
+.bg{
+  position:fixed;inset:0;z-index:-1;
+  background:
+    radial-gradient(1200px 800px at 10% 0%, #16205a 0%, transparent 40%),
+    radial-gradient(1000px 600px at 100% 100%, #0f143a 0%, transparent 50%),
+    linear-gradient(180deg, #0b1020, #090e1c);
+  animation: glow 12s ease-in-out infinite alternate;
+}
+@keyframes glow{0%{filter:contrast(100%)}100%{filter:contrast(115%)}}
+.wrap{max-width:1040px;margin:0 auto;padding:24px}
+.topbar{
+  position:sticky;top:0;backdrop-filter:blur(10px);z-index:20;
+  background:linear-gradient(180deg, rgba(13,17,40,.8), rgba(13,17,40,.3));
+  border-bottom:1px solid var(--border);
+}
+.topbar .brand{font-weight:700;letter-spacing:.2px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between}
+.menu{display:flex;gap:14px;align-items:center}
+.link{color:#cfe2ff;text-decoration:none;border-bottom:1px dashed transparent;padding:6px 8px;border-radius:10px;transition:.2s}
+.link:hover{border-bottom-color:#cfe2ff;background:rgba(255,255,255,.05)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--glass);border:1px solid var(--border);color:var(--fg);
+  border-radius:14px;padding:10px 16px;cursor:pointer;transition:.2s;
+}
+.btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.12)}
+.btn:active{transform:translateY(0);}
+.btn.primary{background:linear-gradient(90deg, var(--pri), var(--pri2));color:#0b1020;border:none;box-shadow:0 10px 30px rgba(110,168,254,.25)}
+.btn.ghost{background:transparent;border:1px solid var(--border)}
+#hero{display:grid;gap:14px;margin-top:28px;margin-bottom:10px}
+#hero h1{font-size:34px;margin:0}
+#hero p{color:var(--muted);margin:0}
+#hero .actions{display:flex;gap:10px;flex-wrap:wrap}
+.view{margin-top:10px}
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+.grid{display:grid;gap:14px}
+.grid.two{grid-template-columns:1fr 1fr}
+@media(max-width:860px){.grid.two{grid-template-columns:1fr}}
+label{display:block;margin:6px 0 6px 2px;color:#dfe6ff;font-weight:500}
+input{
+  width:100%;padding:12px 14px;border-radius:12px;outline:none;
+  background:rgba(255,255,255,.06);border:1px solid var(--border);color:var(--fg);
+  transition:border-color .2s, box-shadow .2s, background .2s;
+}
+input:focus{border-color:#9ec3ff;box-shadow:var(--ring);background:rgba(255,255,255,.08)}
+.form-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.hint{color:var(--muted);font-size:13px}
+.err{color:var(--danger);font-size:14px;margin-top:6px}
+.success{color:var(--ok);font-size:14px;margin-top:6px}
+.table{width:100%;border-collapse:separate;border-spacing:0 8px}
+.table thead th{color:#d9e4ff;text-align:left;font-weight:600;padding:10px 12px}
+.table tbody tr{background:rgba(255,255,255,.04);border:1px solid var(--border)}
+.table tbody td{padding:12px}
+.table tbody tr{transition:.2s}
+.table tbody tr:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#26356b;color:#dbe7ff;font-size:12px;border:1px solid var(--border)}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 12px}
+.kv .k{color:#c9d8ff}
+.footer{color:var(--muted);padding-bottom:32px}
+.toast{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(10px);
+  background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.08));
+  color:var(--fg);border:1px solid var(--border);border-radius:14px;padding:12px 18px;
+  box-shadow:0 20px 40px rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:.25s;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.toast.ok{border-color:rgba(134,239,172,.6)}
+.toast.err{border-color:rgba(248,113,113,.6)}
+.actions-inline a{margin-right:8px}
+.hidden{display:none}
